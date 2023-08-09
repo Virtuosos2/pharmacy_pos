@@ -1,0 +1,28 @@
+package com.pharmacy.pos;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+
+	@GetMapping("/home")
+	public String Home() {
+		return "Welcome to Nagpur Pharmacy";
+	}
+	
+	@GetMapping("/purchase")
+	public String Purchase() {
+		return "Purchase department";
+	}
+	
+	@GetMapping("/sell")
+	public String Sell() {
+		return "Selling department";
+	}
+	
+	@GetMapping("/viewInventory")
+	public String View() {
+		return "To view Inventory";
+	}
+}

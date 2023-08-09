@@ -1,0 +1,5 @@
+package com.pharmacy.pos;
+
+public class HomeController {
+
+}
