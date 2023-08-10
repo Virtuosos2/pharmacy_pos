@@ -1,18 +1,18 @@
 package com.pharmacy.pos;
 
-public class purchase {
- private int purchase_id;
+public class Purchase {
+ private String purchase_id;
  private String product;
  private int price;
  private int quantity;
  private int total;
  
  
- public purchase() {
+ public Purchase() {
 		
 	}
  
-public purchase(int purchase_id, String product, int price, int quantity, int total  ) {
+public Purchase(String purchase_id, String product, int price, int quantity, int total  ) {
 	super();
 	this.purchase_id = purchase_id;
 	this.product = product;
@@ -20,10 +20,10 @@ public purchase(int purchase_id, String product, int price, int quantity, int to
 	this.total = total;
 	this.quantity = quantity;
 }
-public int getPurchase_id() {
+public String getPurchase_id() {
 	return purchase_id;
 }
-public void setPurchase_id(int purchase_id) {
+public void setPurchase_id(String purchase_id) {
 	this.purchase_id = purchase_id;
 }
 public String getProduct() {
