@@ -23,7 +23,7 @@ public class PurchaseController {
 
 	}
 
-	@RequestMapping("/purchase/{id}")
+	@GetMapping("/purchase/{id}")
 	public Purchase getPurchase(@PathVariable String id) {
 		return purchaseService.getPurchase(id);
 	}
