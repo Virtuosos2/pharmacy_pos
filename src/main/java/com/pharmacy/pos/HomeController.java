@@ -25,4 +25,6 @@ public class HomeController {
 	public String View() {
 		return "To view Inventory";
 	}
+
+
 }

@@ -1,7 +1,8 @@
-package com.pharmacy.pos;
+package com.pharmacy.order;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,39 +12,43 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PurchaseController {
+public class OrderController {
 
 	@Autowired
-	private PurchaseService purchaseService;
+	private OrderService purchaseService;
 
 	@GetMapping("/purchase")
-	public List<Purchase> PurchaseDetails() {
+	public List<Order> PurchaseDetails() {
 		return purchaseService.getAllPurchase();
 
 	}
 
 	@GetMapping("/purchase/{id}")
-	public Purchase getPurchase(@PathVariable String id) {
-		return purchaseService.getPurchase(id);
+	public Optional<Order> getPurchase(@PathVariable Integer id) {
+		return  purchaseService.getProduct(id);
 	}
 
 
 	@PostMapping("/purchase")
-	public void addProduct(@RequestBody Purchase product) { 
+	public String addProduct(@RequestBody Order product) { 
 		purchaseService.addProduct(product);
+		return "Product Added Sucessfully";
 
 	}
 
-	@PutMapping("/purchase/{id}")
-	public void updateProduct(@RequestBody Purchase product, @PathVariable String id) {
-		purchaseService.updateProduct(id , product);
+	@PutMapping("/purchase")
+	public String updateProduct( @RequestBody Order product ) {
+		purchaseService.updateProduct(product);
+		return "Product Updated Successfully";
+		
 	}
 
 	@DeleteMapping("/purchase/{id}")
-	public void deletePurchase(@PathVariable String id) {
+	public void deletePurchase(@PathVariable Integer id) {
 		purchaseService.deleteProduct(id);
 	}
 
