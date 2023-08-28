@@ -11,45 +11,43 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class OrderController {
 
 	@Autowired
-	private OrderService purchaseService;
+	private OrderService orderService;
 
-	@GetMapping("/purchase")
-	public List<Order> PurchaseDetails() {
-		return purchaseService.getAllPurchase();
+	@GetMapping("/order")
+	public List<Order> orderDetails() {
+		return orderService.getAllOrders();
 
 	}
 
-	@GetMapping("/purchase/{id}")
-	public Optional<Order> getPurchase(@PathVariable Integer id) {
-		return  purchaseService.getProduct(id);
+	@GetMapping("/order/{id}")
+	public Optional<Order> getorder(@PathVariable Integer id) {
+		return  orderService.getProduct(id);
 	}
 
 
-	@PostMapping("/purchase")
+	@PostMapping("/order")
 	public String addProduct(@RequestBody Order product) { 
-		purchaseService.addProduct(product);
+		orderService.addProduct(product);
 		return "Product Added Sucessfully";
 
 	}
 
-	@PutMapping("/purchase")
+	@PutMapping("/order")
 	public String updateProduct( @RequestBody Order product ) {
-		purchaseService.updateProduct(product);
+		orderService.updateProduct(product);
 		return "Product Updated Successfully";
 		
 	}
 
-	@DeleteMapping("/purchase/{id}")
+	@DeleteMapping("/order/{id}")
 	public void deletePurchase(@PathVariable Integer id) {
-		purchaseService.deleteProduct(id);
+	orderService.deleteProduct(id);
 	}
 
 }
