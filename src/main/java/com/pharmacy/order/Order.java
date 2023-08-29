@@ -1,15 +1,14 @@
 package com.pharmacy.order;
 
 import java.util.Date;
-
-import javax.xml.crypto.Data;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "purchaseOrder")
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +18,7 @@ public class Order {
 	private Date timestamp;
 	
 	public Order() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	

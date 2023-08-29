@@ -27,27 +27,27 @@ public class OrderController {
 
 	@GetMapping("/order/{id}")
 	public Optional<Order> getorder(@PathVariable Integer id) {
-		return  orderService.getProduct(id);
+		return  orderService.getOrder(id);
 	}
 
 
 	@PostMapping("/order")
-	public String addProduct(@RequestBody Order product) { 
-		orderService.addProduct(product);
-		return "Product Added Sucessfully";
+	public String createOrder(@RequestBody Order order) { 
+		orderService.createOrder(order);
+		return "order created Sucessfully";
 
 	}
 
 	@PutMapping("/order")
-	public String updateProduct( @RequestBody Order product ) {
-		orderService.updateProduct(product);
-		return "Product Updated Successfully";
+	public String updateOrder( @RequestBody Order order ) {
+		orderService.updateOrder(order);
+		return "Order Updated Successfully";
 		
 	}
 
 	@DeleteMapping("/order/{id}")
-	public void deletePurchase(@PathVariable Integer id) {
-	orderService.deleteProduct(id);
+	public void deleteOrder(@PathVariable Integer id) {
+	orderService.deleteOrder(id);
 	}
 
 }

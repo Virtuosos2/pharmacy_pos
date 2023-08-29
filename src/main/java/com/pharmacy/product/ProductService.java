@@ -20,5 +20,9 @@ public class ProductService {
 		productRepository.findAll().forEach(product::add);
 		return product;
 		}
+	public void addProduct(Product product) {
+		productRepository.save(product);
+
+	}
 
 }

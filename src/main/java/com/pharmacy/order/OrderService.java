@@ -15,26 +15,24 @@ public class OrderService {
 	private OrderRepository orderRepository;
 
 	public List<Order> getAllOrders() {
-		List<Order> order = new ArrayList<>();
-		orderRepository.findAll().forEach(order::add);
-		return order;
+		return orderRepository.findAll();
 
 	}
 
-	public Optional<Order> getProduct(Integer id) {
+	public Optional<Order> getOrder(Integer id) {
 		return orderRepository.findById(id);
 	}
 
-	public void addProduct(Order product) {
-		orderRepository.save(product);
+	public void createOrder(Order order) {
+		orderRepository.save(order);
 
 	}
 
-	public void updateProduct(Order product) {
-		orderRepository.save(product);
+	public void updateOrder(Order order) {
+		orderRepository.save(order);
 	}
 
-	public void deleteProduct(Integer id) {
+	public void deleteOrder(Integer id) {
 		orderRepository.deleteById(id);
 	}
 }
